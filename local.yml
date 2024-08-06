@@ -4,14 +4,22 @@
   become: true
   tasks:
 
-  - name: Update all packages
+  - name: Update all packages (Ubuntu)
     ansible.builtin.apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: Install apache2
-    ansible.builtin.apt:
-      name: apache2
-      state: latest
-    when: ansible_distribution == "Ubuntu"
+#  - name: Install apache2
+#    ansible.builtin.apt:
+#      name: apache2
+#      state: latest
+#    when: ansible_distribution == "Ubuntu"
+
+  - name: Update all packages (Fedora)
+    ansible.builtin.dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "Fedora"
+...
+
