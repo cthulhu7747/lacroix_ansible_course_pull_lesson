@@ -18,8 +18,8 @@
 
   - name: Update all packages (Fedora)
     ansible.builtin.dnf:
-      update_only: yes
-      update_cache: yes
+      name: "*"
+      state: latest
     when: ansible_distribution == "Fedora"
 ...
 
