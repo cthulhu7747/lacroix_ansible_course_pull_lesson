@@ -10,17 +10,11 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: Update all packages (Debian)
-    ansible.builtin.apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Debian"
-
-  - name: Update all packages (Raspberry Pi)
-    ansible.builtin.apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Raspbian"
+#  - name: Install apache2
+#    ansible.builtin.apt:
+#      name: apache2
+#      state: latest
+#    when: ansible_distribution == "Ubuntu"
 
   - name: Update all packages (Fedora)
     ansible.builtin.dnf:
@@ -28,3 +22,4 @@
       state: latest
     when: ansible_distribution == "Fedora"
 ...
+
